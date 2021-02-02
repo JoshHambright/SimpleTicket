@@ -30,10 +30,28 @@ namespace SimpleTicket.Data
         public Guid CreatorID { get; set; }
         
         public string Title { get; set; }
+        public string Description { get; set; }
         
 
-        //Virtual key here for customer entry
+        // Associated Customer Info
         public int CustomerID { get; set; }
+        //public virtual Customer Customer { get; set; }
+
+
+        //Category
+        public int CategoryID { get; set; }
+        //public virtual Category Category { get; set; }
+
+        //Dates
+        public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateUpdated { get; set; }
+
+        //public Guid AssignedUser { get; set; } //Assigned user (stretch)
+
+        public virtual List<Note> Notes { get; set; }
+
+        public Priority Priority { get; set; }
+        public Status Status { get; set; }
 
     }
 }
