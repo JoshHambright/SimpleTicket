@@ -12,6 +12,9 @@ namespace SimpleTicket.Data
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }
-        
+
+
+        //Tickets for customer
+        public virtual List<Ticket> Tickets { get; set; } = new List<Ticket>();
     }
 }

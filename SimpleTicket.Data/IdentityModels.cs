@@ -34,8 +34,8 @@ namespace SimpleTicket.Data
         
 
         public DbSet<Ticket> Tickets { get; set; } //<--- Tickets
-        //public DbSet<Customer> Customers { get; set; } //<--- Customers
-        //public DbSet<Note> Notes { get; set; } //<--- Notes
+        public DbSet<Customer> Customers { get; set; } //<--- Customers
+        public DbSet<Note> Notes { get; set; } //<--- Notes
         //public DbSet<Category> Categories { get; set; } //<--- Categories
         //public DbSet<Team> Teams { get; set; } //<--- Teams (Not implemented yet)
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

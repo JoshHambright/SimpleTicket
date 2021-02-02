@@ -24,22 +24,25 @@ namespace SimpleTicket.Data
 
     public class Ticket
     {
+
+        //General Props
         [Key]
         public Guid TicketID { get; set; }
 
         public Guid CreatorID { get; set; }
         
         public string Title { get; set; }
+        [DataType(DataType.MultilineText)]
         public string Description { get; set; }
         
 
         // Associated Customer Info
         public int CustomerID { get; set; }
-        //public virtual Customer Customer { get; set; }
+        public virtual Customer Customer { get; set; }
 
 
         //Category
-        public int CategoryID { get; set; }
+        //public int CategoryID { get; set; }
         //public virtual Category Category { get; set; }
 
         //Dates
@@ -48,8 +51,11 @@ namespace SimpleTicket.Data
 
         //public Guid AssignedUser { get; set; } //Assigned user (stretch)
 
+        //Notes
         public virtual List<Note> Notes { get; set; }
+        
 
+        //Status and Priority Enums
         public Priority Priority { get; set; }
         public Status Status { get; set; }
 

@@ -14,6 +14,8 @@ namespace SimpleTicket.Data
         public Guid Creator { get; set; }
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
+        public DateTimeOffset DateCreate { get; set; }
+        public DateTimeOffset? DateUpdated { get; set; }
 
         public Guid TicketID { get; set; }
         public virtual Ticket Ticket { get; set; }
