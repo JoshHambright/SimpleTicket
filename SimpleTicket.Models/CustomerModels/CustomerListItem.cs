@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SimpleTicket.Models.CustomerModels
 {
-    public class CustomerList
+    public class CustomerListItem
     {
         [Display(Name="Customer ID")]
         public int ID { get; set; }

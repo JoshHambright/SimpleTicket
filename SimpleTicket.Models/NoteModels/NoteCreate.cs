@@ -13,5 +13,6 @@ namespace SimpleTicket.Models.NoteModels
         [Display(Name ="Note Body")]
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
+        public Guid TicketID { get; set; }
     }
 }

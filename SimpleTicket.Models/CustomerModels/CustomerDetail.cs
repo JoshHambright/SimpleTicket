@@ -12,6 +12,6 @@ namespace SimpleTicket.Models.CustomerModels
         public int ID { get; set; }
         public string Name { get; set; }
 
-        public  List<TicketListShort> Tickets { get; set; } = new List<TicketListShort>();
+        public  List<TicketListShortItem> Tickets { get; set; } = new List<TicketListShortItem>();
     }
 }

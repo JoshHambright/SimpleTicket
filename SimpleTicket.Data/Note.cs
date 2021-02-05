@@ -12,6 +12,7 @@ namespace SimpleTicket.Data
         [Key]
         public int ID { get; set; }
         public Guid Creator { get; set; }
+        public string CreateName { get; set; }
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
         public DateTimeOffset DateCreate { get; set; }

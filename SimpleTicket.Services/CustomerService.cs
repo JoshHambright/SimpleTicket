@@ -39,7 +39,7 @@ namespace SimpleTicket.Services
         //Read (all)
         //Returns a list of all customers
         //Defaults sorted by Customer Name
-        public async Task<IEnumerable<CustomerList>> GetCustomersAsync()
+        public async Task<IEnumerable<CustomerListItem>> GetCustomersAsync()
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -50,7 +50,7 @@ namespace SimpleTicket.Services
                             .OrderBy(e => e.Name) //Sorts by name
                             .Select(
                                 e =>
-                                    new CustomerList
+                                    new CustomerListItem
                                     {
                                         ID = e.ID,
                                         Name = e.Name,
@@ -59,7 +59,7 @@ namespace SimpleTicket.Services
                                                         .Where(f => f.Status == Status.Open)
                                                         .Select(
                                                                 f =>
-                                                                    new Models.TicketModels.TicketList
+                                                                    new Models.TicketModels.TicketListItem
                                                                     {
                                                                         TicketID = f.TicketID,
                                                                         Status = f.Status
@@ -91,7 +91,7 @@ namespace SimpleTicket.Services
                                     .Select
                                     (
                                         f =>
-                                            new TicketListShort
+                                            new TicketListShortItem
                                             {
                                                 TicketID = f.TicketID,
                                                 CreatorID = f.CreatorID,

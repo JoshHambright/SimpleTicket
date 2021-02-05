@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleTicket.Models.NoteModels
 {
-    public class NoteList
+    public class NoteListItem
     {
         [Display(Name = "ID")]
         public int ID { get; set; }
