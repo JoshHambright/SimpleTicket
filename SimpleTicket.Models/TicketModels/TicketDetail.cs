@@ -1,4 +1,5 @@
 ﻿using SimpleTicket.Data;
+using SimpleTicket.Models.NoteModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,13 +9,16 @@ using System.Threading.Tasks;
 
 namespace SimpleTicket.Models.TicketModels
 {
-    public class TicketDetails
+    public class TicketDetail
     {
         //General Props
         [Display(Name = "Ticket ID #")]
         public Guid TicketID { get; set; }
         [Display(Name = "Create ID")]
         public Guid CreatorID { get; set; }
+        [Display(Name = "Create Name")]
+
+        public string CreatorName { get; set; }
         public string Title { get; set; }
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
@@ -32,7 +36,7 @@ namespace SimpleTicket.Models.TicketModels
         //Notes
         [Display(Name = "Note Count")]
         public int NoteCount { get; set; }
-        public virtual List<Note> Notes { get; set; }
+        public  List<NoteListItem> Notes { get; set; }
 
 
         //Status and Priority Enums

@@ -30,6 +30,7 @@ namespace SimpleTicket.Data
         public Guid TicketID { get; set; }
 
         public Guid CreatorID { get; set; }
+        public string CreatorName { get; set; }
         
         public string Title { get; set; }
         [DataType(DataType.MultilineText)]

@@ -15,6 +15,8 @@ namespace SimpleTicket.Models.TicketModels
         public Guid TicketID { get; set; }
         [Display(Name = "Create ID")]
         public Guid CreatorID { get; set; }
+        [Display(Name = "Create Name")]
+        public string CreateName { get; set; }
         public string Title { get; set; }
         //Dates
         public DateTimeOffset DateCreated { get; set; }
