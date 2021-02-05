@@ -54,11 +54,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerModels\CustomerCreate.cs" />
+    <Compile Include="CustomerModels\CustomerDetail.cs" />
+    <Compile Include="CustomerModels\CustomerEdit.cs" />
+    <Compile Include="CustomerModels\CustomerList.cs" />
     <Compile Include="NoteModels\NoteCreate.cs" />
     <Compile Include="NoteModels\NoteDetail.cs" />
     <Compile Include="NoteModels\NoteEdit.cs" />
     <Compile Include="NoteModels\NoteList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TicketModels\TicketCreate.cs" />
+    <Compile Include="TicketModels\TicketDetails.cs" />
+    <Compile Include="TicketModels\TicketEdit.cs" />
+    <Compile Include="TicketModels\TicketListShort.cs" />
+    <Compile Include="TicketModels\TicketList.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SimpleTicket.Data\SimpleTicket.Data.csproj">
@@ -70,8 +79,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

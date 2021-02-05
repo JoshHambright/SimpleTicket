@@ -16,7 +16,7 @@ namespace SimpleTicket.Models.TicketModels
         [Display(Name = "Create ID")]
         public Guid CreatorID { get; set; }
         public string Title { get; set; }
-        [DataType(DataType.MultilineText)]
+        //[DataType(DataType.MultilineText)]
     
         // Associated Customer Info
         [Display(Name = "Customer ID")]

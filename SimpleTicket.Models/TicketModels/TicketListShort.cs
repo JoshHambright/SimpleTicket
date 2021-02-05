@@ -8,19 +8,17 @@ using System.Threading.Tasks;
 
 namespace SimpleTicket.Models.TicketModels
 {
-    public class TicketCreate
+    public class TicketListShort
     {
-        [Required]
+        //General Props
+        [Display(Name = "Ticket ID #")]
+        public Guid TicketID { get; set; }
+        [Display(Name = "Create ID")]
+        public Guid CreatorID { get; set; }
         public string Title { get; set; }
-        [DataType(DataType.MultilineText)]
-        [Required]
-        public string Description { get; set; }
-
-        // Associated Customer Info
-        [Required]
-        [Display(Name = "Customer")]
-        public int CustomerID { get; set; }
-
+        //Dates
+        public DateTimeOffset DateCreated { get; set; }
+        public DateTimeOffset? DateUpdated { get; set; }
         //Status and Priority Enums
         public Priority Priority { get; set; }
         public Status Status { get; set; }

@@ -9,16 +9,16 @@ namespace SimpleTicket.Models.NoteModels
 {
     public class NoteEdit
     {
-        [Required]
+        [Display(Name = "Note ID")]
         public int ID { get; set; }
-        [Required]
+        
+        [Display(Name = "UserID")]
         public Guid Creator { get; set; }
-        [Required]
         [DataType(DataType.MultilineText)]
+        [Display(Name = "Note body")]
         public string Body { get; set; }
-        public DateTimeOffset DateCreate { get; set; }
-        public DateTimeOffset? DateUpdated { get; set; }
-        [Required]
+        [Display(Name = "Ticket ID")]
         public Guid TicketID { get; set; }
+        
     }
 }

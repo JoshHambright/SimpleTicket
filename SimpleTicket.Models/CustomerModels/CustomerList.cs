@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimpleTicket.Models.TicketModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -16,7 +17,6 @@ namespace SimpleTicket.Models.CustomerModels
         [Display(Name = "Total Tickets")]
         public int TotalTicketCount { get; set; }
         [Display(Name = "Open Tickets")]
-        public int OpenTicketCount { get; set; }
-        
+        public int OpenTicketCount { get; set; }        
     }
 }
