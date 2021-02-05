@@ -59,7 +59,8 @@ namespace SimpleTicket.MVC.Controllers
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            var model = new LoginViewModel();
+            return View(model);
         }
 
         //
@@ -140,7 +141,8 @@ namespace SimpleTicket.MVC.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            var model = new RegisterViewModel();
+            return View(model);
         }
 
         //

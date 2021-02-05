@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202102041927530_Initial Migration.Designer.cs">
       <DependentUpon>202102041927530_Initial Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102051503251_Migration #1.cs" />
+    <Compile Include="Migrations\202102051503251_Migration #1.Designer.cs">
+      <DependentUpon>202102051503251_Migration #1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Note.cs" />
     <Compile Include="Ticket.cs" />
@@ -72,6 +76,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202102041927530_Initial Migration.resx">
       <DependentUpon>202102041927530_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102051503251_Migration #1.resx">
+      <DependentUpon>202102051503251_Migration #1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
