@@ -11,6 +11,8 @@ using System.Web.Security;
 
 namespace SimpleTicket.Services
 {
+    //© 2021 - Josh Hambright
+
     public class NoteService
     {
 

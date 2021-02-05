@@ -10,6 +10,8 @@ using System.Web.Mvc;
 
 namespace SimpleTicket.MVC.Controllers
 {
+    //© 2021 - Josh Hambright
+
     [Authorize]
     public class CustomerController : Controller
     {
@@ -45,62 +47,81 @@ namespace SimpleTicket.MVC.Controllers
 
         // POST: Customer/Create
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(CustomerCreate customer)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if (!ModelState.IsValid) return View(customer);
+                var service = CreateCustomerService();
+                if (await service.CreateCustomerAsync(customer))
+                {
+                    TempData["SaveResult"] = "Your Customer was created.";
+                    return RedirectToAction("Index");
+                }
+                ModelState.AddModelError("", "Could not create customer.");
+                return View(customer);
             }
             catch
             {
-                return View();
+                ModelState.AddModelError("", "Could not create customer.");
+                return View(customer);
             }
         }
 
         // GET: Customer/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            var service = CreateCustomerService();
+            var details = await service.GetCustomerByIDAsync(id);
+            var model = new CustomerEdit
+            {
+                ID = details.ID,
+                Name = details.Name,
+                Status = details.Status
+            };
+            return View(model);
         }
 
         // POST: Customer/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit(int id, CustomerEdit customer)
         {
-            try
+            if (!ModelState.IsValid) return View(customer);
+            if(customer.ID != id)
             {
-                // TODO: Add update logic here
-
+                ModelState.AddModelError("", "ID Mismatch, please try again");
+                return View(customer);
+            }
+            var service = CreateCustomerService();
+            if (await service.UpdateCustomerAsync(customer))
+            {
+                TempData["SaveResult"] = "Customer has been updated.";
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            ModelState.AddModelError("", "Could not update customer.");
+            return View(customer);
         }
 
         // GET: Customer/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
         {
-            return View();
+            var service = CreateCustomerService();
+            var detail = await service.GetCustomerByIDAsync(id);
+            return View(detail);
         }
 
         // POST: Customer/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> DeleteCustomer(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            var service = CreateCustomerService();
+            await service.HardDeleteCustomerAsync(id);
+            TempData["SaveResult"] = "Customer has been deleted";
+            return RedirectToAction("Index");
         }
     }
 }

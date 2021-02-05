@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimpleTicket.Data
 {
+    //© 2021 - Josh Hambright
     public enum CustomerStatus
     {
         Active = 0,

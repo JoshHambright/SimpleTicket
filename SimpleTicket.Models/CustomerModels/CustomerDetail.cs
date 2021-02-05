@@ -1,4 +1,5 @@
-﻿using SimpleTicket.Models.TicketModels;
+﻿using SimpleTicket.Data;
+using SimpleTicket.Models.TicketModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace SimpleTicket.Models.CustomerModels
     {
         public int ID { get; set; }
         public string Name { get; set; }
-
+        public CustomerStatus Status { get; set; }
         public  List<TicketListShortItem> Tickets { get; set; } = new List<TicketListShortItem>();
     }
 }

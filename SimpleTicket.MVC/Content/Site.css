@@ -22,3 +22,17 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.navbar-brand {
+    background: url(assets/simpleTicket_light_50px.png) no-repeat;
+    background-size: 159px 44px;
+    height: 44px;
+    margin: 0px;
+    width: 150px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 23px;
+    padding-bottom: 5px;
+}
+
