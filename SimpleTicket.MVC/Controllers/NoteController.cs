@@ -34,15 +34,26 @@ namespace SimpleTicket.MVC.Controllers
         {
             var service = CreateNoteService();
             var note = await service.GetNoteByIDAsync(id);
-            return View();
+            return View(note);
         }
 
-        // GET: Note/Create
-        public ActionResult Create()
+        //// GET: Note/Create
+        //public ActionResult Create()
+        //{
+        //    var service = CreateNoteService();
+        //    var model = new NoteCreate();
+        //    return View(model);
+        //}
+
+        //Get Note/Create/{TicketID}
+        public ActionResult Create(Guid ticket)
         {
             var service = CreateNoteService();
-            var model = new NoteCreate();
-            return View();
+            var model = new NoteCreate
+            {
+                TicketID = ticket
+            };
+            return View(model);
         }
 
         // POST: Note/Create

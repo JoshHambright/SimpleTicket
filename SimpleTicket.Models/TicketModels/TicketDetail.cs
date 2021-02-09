@@ -36,7 +36,7 @@ namespace SimpleTicket.Models.TicketModels
         //Notes
         [Display(Name = "Note Count")]
         public int NoteCount { get; set; }
-        public  List<NoteListItem> Notes { get; set; }
+        public List<NoteListItem> Notes { get; set; } = new List<NoteListItem>();
 
 
         //Status and Priority Enums

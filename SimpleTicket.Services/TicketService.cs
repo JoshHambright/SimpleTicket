@@ -87,7 +87,7 @@ namespace SimpleTicket.Services
                             .Tickets
                             .Where(e => e.TicketID == id)
                             .FirstOrDefaultAsync();
-                return
+                return 
                     new TicketDetail
                     {
                         TicketID = entity.TicketID,
@@ -100,14 +100,14 @@ namespace SimpleTicket.Services
                         DateCreated = entity.DateCreated,
                         DateUpdated = entity.DateUpdated,
                         NoteCount = entity.Notes.Count,
-                        Notes = entity.Notes
+                        Notes =  entity.Notes
                                         .Select(
                                                 f =>
                                                 new NoteListItem
                                                 {
                                                     ID = f.ID,
                                                     CreatorName = f.CreateName,
-                                                    BodyShort = f.Body.Substring(0, 50),
+                                                    BodyShort = f.Body,/*.Substring(0, 50),*/
                                                     DateCreate = f.DateCreate,
                                                     DateUpdated = f.DateUpdated
                                                 }
