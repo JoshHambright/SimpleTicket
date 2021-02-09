@@ -1,53 +1,32 @@
-﻿using System;
+﻿using SimpleTicket.Data;
+using SimpleTicket.Models.NoteModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SimpleTicket.Data
+namespace SimpleTicket.Models.TicketModels
 {
-    //© 2021 - Josh Hambright
-
-    public enum Priority
+    public class TicketDetail
     {
-        Blue = 0, // Solved
-        Green = 1, //Lowest Priority
-        Yellow = 2,
-        Orange = 3,
-        Red = 4 // Highest Priority
-    };
-
-    public enum Status
-    {
-        Open = 0,
-        Closed = 1
-    };
-
-    public class Ticket
-    {
-
         //General Props
-        [Key]
-        public Guid TicketID { get; set; } = Guid.NewGuid();
-
+        [Display(Name = "Ticket ID #")]
+        public Guid TicketID { get; set; }
+        [Display(Name = "Create ID")]
         public Guid CreatorID { get; set; }
+        [Display(Name = "Create Name")]
+
         public string CreatorName { get; set; }
-        
         public string Title { get; set; }
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
-        
-
         // Associated Customer Info
+        [Display(Name = "Customer ID")]
         public int CustomerID { get; set; }
-        public virtual Customer Customer { get; set; }
-
-
-        //Category
-        //public int CategoryID { get; set; }
-        //public virtual Category Category { get; set; }
-
+        [Display(Name = "Name")]
+        public string CustomerName { get; set; }
         //Dates
         public DateTimeOffset DateCreated { get; set; }
         public DateTimeOffset? DateUpdated { get; set; }
@@ -55,12 +34,13 @@ namespace SimpleTicket.Data
         //public Guid AssignedUser { get; set; } //Assigned user (stretch)
 
         //Notes
-        public virtual List<Note> Notes { get; set; }
-        
+        [Display(Name = "Note Count")]
+        public int NoteCount { get; set; }
+        public List<NoteListItem> Notes { get; set; } = new List<NoteListItem>();
+
 
         //Status and Priority Enums
         public Priority Priority { get; set; }
         public Status Status { get; set; }
-
     }
 }

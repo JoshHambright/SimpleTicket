@@ -1,4 +1,6 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -28,6 +30,39 @@ namespace SimpleTicket.Data
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        
+
+        public DbSet<Ticket> Tickets { get; set; } //<--- Tickets
+        public DbSet<Customer> Customers { get; set; } //<--- Customers
+        public DbSet<Note> Notes { get; set; } //<--- Notes
+        //public DbSet<Category> Categories { get; set; } //<--- Categories
+        //public DbSet<Team> Teams { get; set; } //<--- Teams (Not implemented yet)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Conventions
+                .Remove<PluralizingTableNameConvention>();
+
+            modelBuilder
+                .Configurations
+                .Add(new IdentityUserLoginConfiguration())
+                .Add(new IdentityUserRoleConfiguration());
+        }
+
+    }
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(iul => iul.UserId);
+        }
+    }
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
         }
     }
 }
