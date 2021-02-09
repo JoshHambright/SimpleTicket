@@ -46,12 +46,12 @@ namespace SimpleTicket.MVC.Controllers
         //}
 
         //Get Note/Create/{TicketID}
-        public ActionResult Create(Guid ticket)
+        public ActionResult Create(Guid id)
         {
             var service = CreateNoteService();
             var model = new NoteCreate
             {
-                TicketID = ticket
+                TicketID = id
             };
             return View(model);
         }
