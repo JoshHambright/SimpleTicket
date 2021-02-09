@@ -29,7 +29,7 @@ namespace SimpleTicket.Data
 
         //General Props
         [Key]
-        public Guid TicketID { get; set; }
+        public Guid TicketID { get; set; } = Guid.NewGuid();
 
         public Guid CreatorID { get; set; }
         public string CreatorName { get; set; }
